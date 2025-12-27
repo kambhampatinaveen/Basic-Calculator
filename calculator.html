@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Colorful Flask Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="app-bg">
+
+    <div class="calculator-card">
+
+        <h1>🧮 Calculator</h1>
+        <p class="tagline">Simple • Fast • Colorful</p>
+
+        <form method="POST">
+            <input type="number" step="any" name="num1" placeholder="First Number" required>
+
+            <select name="operation" required>
+                <option value="">Select Operation</option>
+                <option value="+">Addition (+)</option>
+                <option value="-">Subtraction (-)</option>
+                <option value="*">Multiplication (×)</option>
+                <option value="/">Division (÷)</option>
+            </select>
+
+            <input type="number" step="any" name="num2" placeholder="Second Number" required>
+
+            <button type="submit">Calculate</button>
+        </form>
+
+        {% if result is not none %}
+        <div class="result success">
+            Result: {{ result }}
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="result error">
+            {{ error }}
+        </div>
+        {% endif %}
+
+    </div>
+
+</div>
+
+<footer>
+</footer>
+
+</body>
+</html>
